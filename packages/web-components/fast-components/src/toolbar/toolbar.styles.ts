@@ -69,11 +69,6 @@ export const toolbarStyles: (
             margin-inline: 0;
         }
 
-        .start__hidden,
-        .end__hidden {
-            display: none;
-        }
-
         ::slotted(svg) {
             ${/* Glyph size is temporary - replace when adaptive typography is figured out */ ""}
             width: 16px;
