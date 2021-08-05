@@ -1,7 +1,8 @@
-import { elements, html, ref, slotted } from "@microsoft/fast-element";
+import { elements, html, slotted } from "@microsoft/fast-element";
 import type { ViewTemplate } from "@microsoft/fast-element";
 import type { FoundationElementDefinition } from "../foundation-element";
 import type { ElementDefinitionContext } from "../design-system";
+import { endTemplate, startTemplate } from "../patterns";
 import type { Toolbar } from "./toolbar";
 
 /**
@@ -28,30 +29,14 @@ export const toolbarTemplate: (
     >
         <slot name="label"></slot>
         <div class="positioning-region" part="positioning-region">
-            <span class="start start__hidden" part="start" ${ref("startContainer")}>
-                <slot
-                    name="start"
-                    ${slotted({
-                        filter: elements(),
-                        property: "startSlottedItems",
-                    })}
-                ></slot>
-            </span>
+            ${startTemplate}
             <slot
                 ${slotted({
                     filter: elements(),
                     property: "slottedItems",
                 })}
             ></slot>
-            <span class="end end__hidden" part="end" ${ref("endContainer")}>
-                <slot
-                    name="end"
-                    ${slotted({
-                        filter: elements(),
-                        property: "endSlottedItems",
-                    })}
-                ></slot>
-            </span>
+            ${endTemplate}
         </div>
     </template>
 `;
